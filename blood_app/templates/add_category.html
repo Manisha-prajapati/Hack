@@ -1,0 +1,102 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+    /* General Styling */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f9f9f9;
+    }
+
+    /* Add Category Section Styling */
+    .logins {
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 600px;
+        margin: 50px auto;
+    }
+
+    .title-section h3 {
+        color: #343a40;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #495057;
+    }
+
+    .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .logins {
+            padding: 20px;
+        }
+
+        .btn-primary {
+            font-size: 14px;
+            padding: 10px 15px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .logins {
+            padding: 15px;
+        }
+
+        .form-control {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<!-- Add Category Section -->
+<section class="logins py-5">
+    <div class="container py-xl-5 py-lg-3">
+        <div class="title-section mb-md-5 mb-4">
+            <h3 class="w3ls-title text-uppercase text-dark font-weight-bold">Add Category</h3>
+        </div>
+        <hr />
+        <div class="login px-sm-12" style="width:100%">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label>Category Name</label>
+                        <input type="text" class="form-control" name="name" required="">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary submit mt-4">Add Category</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

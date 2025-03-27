@@ -1,0 +1,111 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+   
+    body {
+        font-family: 'Arial', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    /* Login Section Styling */
+    .logins {
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        max-width: 500px;
+        margin: 50px auto;
+    }
+
+    .title-section h3 {
+        color: #343a40;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .login {
+        margin-top: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #495057;
+    }
+
+    .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    small.form-text {
+        color: #6c757d;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .logins {
+            padding: 20px;
+        }
+
+        .btn-primary {
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .logins {
+            padding: 15px;
+        }
+
+        .form-control {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<!-- Login Section -->
+<section class="logins py-5">
+    <div class="container py-xl-5 py-lg-3">
+        <div class="title-section mb-md-5 mb-4">
+            <h3 class="w3ls-title text-uppercase text-dark font-weight-bold">Login Now</h3>
+        </div>
+        <hr />
+        <div class="login px-sm-4 mx-auto mw-100 login-wrapper">
+            <form class="login-wrapper" action="" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="uname" placeholder="Enter Username" required="">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your Detail with anyone else.</small>
+                </div><br>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="pwd" placeholder="Enter Your Password" required="">
+                </div>
+                <button type="submit" class="btn btn-primary submit mt-4">Login</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
